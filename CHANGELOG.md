@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.7](https://github.com/zzzgit/marga/compare/v0.2.6...v0.2.7) (2022-02-10)
+
+
+### Bug Fixes
+
+* dead loop ([e51c880](https://github.com/zzzgit/marga/commit/e51c880c507e6a01b9bd9da0230e242707bb8d16))
+
 ### [0.2.6](https://github.com/zzzgit/marga/compare/v0.2.5...v0.2.6) (2022-02-10)
 
 ### [0.2.5](https://github.com/zzzgit/marga/compare/v0.2.4...v0.2.5) (2022-02-10)
