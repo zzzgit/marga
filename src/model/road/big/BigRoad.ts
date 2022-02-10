@@ -117,6 +117,27 @@ class BigRoad implements IStreakRoad {
 	getShoeIndex(): number {
 		return this._shoeIndex
 	}
+
+	getPingpongIterator(): Generator<BigEntity[], void, boolean> {
+		const first = this.getFirstStreak()
+		const gen = function* (): Generator<BigEntity[], void, boolean> {
+			const arr: BigEntity[] = []
+			let streak = first
+			while (streak) {
+				if (streak.getLength() === 1) {
+					arr.push(streak.getFirstEntity() as BigEntity)
+					continue
+				}
+				if (streak.getPreviousStreak()?.getLength() === 1) {
+					const result = [...arr]
+					arr.length = 0
+					yield result
+				}
+				streak = streak.getNextStreak()
+			}
+		}
+		return gen()
+	}
 }
 
 export default BigRoad
