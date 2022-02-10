@@ -124,14 +124,14 @@ class BigRoad implements IStreakRoad {
 			const arr: BigEntity[] = []
 			let streak = first
 			while (streak) {
-				if (streak.getLength() === 1) {
+				if (streak.getLength() === 1) {	// 當前streak是單跳
 					arr.push(streak.getFirstEntity() as BigEntity)
-					continue
-				}
-				if (streak.getPreviousStreak()?.getLength() === 1) {
-					const result = [...arr]
-					arr.length = 0
-					yield result
+				} else {
+					if (streak.getPreviousStreak()?.getLength() === 1) {
+						const result = [...arr]
+						arr.length = 0
+						yield result
+					}
 				}
 				streak = streak.getNextStreak()
 			}
