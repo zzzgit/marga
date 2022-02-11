@@ -121,19 +121,24 @@ class BigRoad implements IStreakRoad {
 	getPingpongIterator(): Generator<BigEntity[], void, boolean> {
 		const first = this.getFirstStreak()
 		const gen = function* (): Generator<BigEntity[], void, boolean> {
-			const arr: BigEntity[] = []
+			const entities_arr: BigEntity[] = []
 			let streak = first
 			while (streak) {
 				if (streak.getLength() === 1) {	// 當前streak是單跳
-					arr.push(streak.getFirstEntity() as BigEntity)
+					entities_arr.push(streak.getFirstEntity() as BigEntity)
 				} else {
 					if (streak.getPreviousStreak()?.getLength() === 1) {
-						const result = [...arr]
-						arr.length = 0
+						const result = [...entities_arr]
+						entities_arr.length = 0
 						yield result
 					}
 				}
 				streak = streak.getNextStreak()
+			}
+			if (entities_arr.length) {
+				const result = [...entities_arr]
+				entities_arr.length = 0
+				yield result
 			}
 		}
 		return gen()
