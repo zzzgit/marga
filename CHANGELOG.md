@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.10](https://github.com/zzzgit/marga/compare/v0.2.9...v0.2.10) (2022-02-11)
+
+
+### Features
+
+* includes the last pingpong group ([f5cf7a9](https://github.com/zzzgit/marga/commit/f5cf7a9442b2bf6c3f70c2fc06e442cc62bf5ec8))
+
 ### [0.2.9](https://github.com/zzzgit/marga/compare/v0.2.8...v0.2.9) (2022-02-11)
 
 ### [0.2.8](https://github.com/zzzgit/marga/compare/v0.2.7...v0.2.8) (2022-02-10)
