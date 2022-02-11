@@ -5,7 +5,7 @@ describe("game", () => {
 	test("index", () => {
 		let big: BeadRoad = new BeadRoad(2)
 		big.addEntity(new BlueBeadEntity(2))
-		return expect(Promise.resolve(big.getFirstEntity() instanceof BlueBeadEntity)).resolves.toBe(true)
+		return expect(Promise.resolve(big.getFirstEntity() instanceof BlueBeadEntity)).resolves.toEqual(true)
 	})
 	// test("push after shutdown", () => {
 	// 	const runner = new Corunner(2)
