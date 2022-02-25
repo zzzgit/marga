@@ -1,6 +1,6 @@
 {
   "name": "marga",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "type": "commonjs",
   "description": "gaming soreboard",
   "repository": {
@@ -34,7 +34,7 @@
     "ts-custom-error": "^3.2.0"
   },
   "devDependencies": {
-		"@rollup/plugin-typescript": "^8.3.1",
+    "@rollup/plugin-typescript": "^8.3.1",
     "@commitlint/cli": "^16.2.1",
     "@commitlint/config-conventional": "^16.2.1",
     "@rollup/plugin-replace": "^4.0.0",
