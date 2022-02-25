@@ -11,6 +11,7 @@
 		"outDir": "./built/lib/",
 		"declarationDir": "./built/t/",
 		"declarationMap": true,
+		"emitDeclarationOnly": true,
 		"preserveWatchOutput": true,
 		"alwaysStrict": true,
 		"diagnostics": true,
