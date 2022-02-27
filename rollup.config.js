@@ -9,7 +9,7 @@ module.exports = {
 	input: path.resolve(__dirname, "./src/index.ts"),
 	output: {
 		file: path.resolve(__dirname, pkg.main),
-		format: "es",
+		format: "commonjs",
 		name: "marga",
 		banner: "/* eslint-disable */",
 		// sourcemap: true,
