@@ -3,9 +3,9 @@ import BlueBeadEntity from "../src/model/road/bead/BlueBeadEntity"
 
 describe("game", () => {
 	test("index", () => {
-		let big: BeadRoad = new BeadRoad(2)
+		const big: BeadRoad = new BeadRoad(2)
 		big.addEntity(new BlueBeadEntity(2))
-		return expect(Promise.resolve(big.getFirstEntity() instanceof BlueBeadEntity)).resolves.toEqual(true)
+		return expect(Promise.resolve(big.getFirstEntity() instanceof BlueBeadEntity)).resolves.toBe(true)
 	})
 	// test("push after shutdown", () => {
 	// 	const runner = new Corunner(2)
@@ -24,5 +24,4 @@ describe("game", () => {
 	// 	return expect(runner.start()).resolves.toHaveLength(1)
 	// })
 })
-
 
