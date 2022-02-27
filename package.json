@@ -1,7 +1,7 @@
 {
   "name": "marga",
   "version": "0.2.13",
-  "type": "commonjs",
+  "type": "module",
   "description": "gaming soreboard",
   "repository": {
     "type": "git",
