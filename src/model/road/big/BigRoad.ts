@@ -8,7 +8,7 @@ import RedBeadEntity from "../bead/RedBeadEntity"
 import IStreakRoad from "../IStreakRoad"
 import BancoBigEntity from "./BancoBigEntity"
 import BigEntity from "./BigEntity"
-import PlayerBigEntity from "./PlayerBigEntity"
+import PuntoBigEntity from "./PuntoBigEntity"
 
 class BigRoad implements IStreakRoad {
 	static from(beadRoad: BeadRoad): BigRoad {
@@ -22,7 +22,7 @@ class BigRoad implements IStreakRoad {
 				if (currentBead instanceof RedBeadEntity) {
 					entity = new BancoBigEntity()
 				} else {
-					entity = new PlayerBigEntity()
+					entity = new PuntoBigEntity()
 				}
 				bigroad.addEntity(entity)
 			}
