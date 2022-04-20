@@ -47,7 +47,7 @@ class Streak {
 			this._length++
 			return true
 		}
-		if (this.getLastEntity()?.isBanker != entity.isBanker) {
+		if (this.getLastEntity()?.isBanco != entity.isBanco) {
 			return false
 		}
 		entity.setPreviousEntity(this._lastEntity)

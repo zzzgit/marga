@@ -1,7 +1,7 @@
 import BigEntity from "./BigEntity"
 
 class PlayerBigEntity extends BigEntity {
-	isBanker: boolean = false
+	isBanco: boolean = false
 
 	isPlayer: boolean = true
 }

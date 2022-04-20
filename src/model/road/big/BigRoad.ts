@@ -6,7 +6,7 @@ import BeadRoad from "../bead/BeadRoad"
 import GreenBeadEntity from "../bead/GreenBeadEntity"
 import RedBeadEntity from "../bead/RedBeadEntity"
 import IStreakRoad from "../IStreakRoad"
-import BankerBigEntity from "./BankerBigEntity"
+import BancoBigEntity from "./BancoBigEntity"
 import BigEntity from "./BigEntity"
 import PlayerBigEntity from "./PlayerBigEntity"
 
@@ -20,7 +20,7 @@ class BigRoad implements IStreakRoad {
 			} else {
 				let entity: BigEntity
 				if (currentBead instanceof RedBeadEntity) {
-					entity = new BankerBigEntity()
+					entity = new BancoBigEntity()
 				} else {
 					entity = new PlayerBigEntity()
 				}
@@ -58,7 +58,7 @@ class BigRoad implements IStreakRoad {
 		while (streak) {
 			const streakArr = []
 			const first = streak.getFirstEntity()
-			if (first?.isBanker) {
+			if (first?.isBanco) {
 				for (let i = 0, len = streak.getLength(); i < len; i++) {
 					streakArr.push("B ")
 				}

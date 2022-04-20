@@ -1,7 +1,7 @@
 import Entity from "../../entity/Entity"
 
 class BigEntity extends Entity {
-	isBanker: boolean = false
+	isBanco: boolean = false
 
 	isPlayer: boolean = false
 }
