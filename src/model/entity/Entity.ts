@@ -35,7 +35,7 @@ class Entity implements IEntity {
 			throw new InnerError(`[Entity][setPreviousEntity]: parameter entity should a instance of Entity!`)
 		}
 		this._prev = entity
-		entity.setNextEntity(this)
+		// entity.setNextEntity(this)
 		entity._next = this
 	}
 
