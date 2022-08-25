@@ -29,7 +29,7 @@ class BeadRoad implements IRoad {
 	}
 
 
-	getFirstEntity(): Entity | undefined {
+	getFirstEntity(): IEntity | undefined {
 		return this._firstEntity
 	}
 
