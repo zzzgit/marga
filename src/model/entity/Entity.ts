@@ -11,9 +11,15 @@ class Entity implements IEntity {
 
 	private _tagArray: Badge[] = []
 
+	private readonly _gameId: number
 
-	constructor(index:number = -1) {
-		this._index = index
+
+	constructor(gameId: number) {
+		this._gameId = gameId
+	}
+
+	getGameId(): number {
+		return this._gameId
 	}
 
 	setNextEntity(entity: IEntity): void {

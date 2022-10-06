@@ -12,6 +12,8 @@ class BeadRoad implements IRoad {
 
 	private readonly _shoeIndex: number
 
+	private _entityIndex : number = -1
+
 	private _setLastEntity(entity: Entity): void {
 		this._lastEntity = entity
 	}
@@ -45,6 +47,8 @@ class BeadRoad implements IRoad {
 		if (this._set.has(entity)) {
 			return false
 		}
+		this._entityIndex++
+		entity.setIndex(this._entityIndex)
 		this._set.add(entity)
 		if (!this.getFirstEntity()) {
 			this._setFirstEntity(entity)

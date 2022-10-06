@@ -20,9 +20,9 @@ class BigRoad implements IStreakRoad {
 			} else {
 				let entity: BigEntity
 				if (currentBead instanceof RedBeadEntity) {
-					entity = new BancoBigEntity()
+					entity = new BancoBigEntity(currentBead.getGameId())
 				} else {
-					entity = new PuntoBigEntity()
+					entity = new PuntoBigEntity(currentBead.getGameId())
 				}
 				bigroad.addEntity(entity)
 			}
@@ -33,6 +33,7 @@ class BigRoad implements IStreakRoad {
 
 	private _length: number = 0
 
+	private _entityIndex: number = -1
 
 	private _firstStreak: Streak | undefined
 
@@ -78,6 +79,8 @@ class BigRoad implements IStreakRoad {
 	}
 
 	addEntity(entity: BigEntity): boolean {
+		this._entityIndex++
+		entity.setIndex(this._entityIndex)
 		// no streak
 		if (!this.getFirstStreak()) {
 			const steak: Streak = new Streak()
