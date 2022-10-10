@@ -1,7 +1,9 @@
 import InnerError from "../../../error/InnerError"
+import TieBadge from "../../badge/TieBadge"
 import Entity from "../../entity/Entity"
 import IEntity from "../../entity/IEntity"
 import Streak from "../../streak/Streak"
+import BeadEntity from '../bead/BeadEntity'
 import BeadRoad from "../bead/BeadRoad"
 import GreenBeadEntity from "../bead/GreenBeadEntity"
 import RedBeadEntity from "../bead/RedBeadEntity"
@@ -13,20 +15,40 @@ import PuntoBigEntity from "./PuntoBigEntity"
 class BigRoad implements IStreakRoad {
 	static from(beadRoad: BeadRoad): BigRoad {
 		const bigroad = new BigRoad(beadRoad.getShoeIndex())
-		let currentBead:IEntity = beadRoad.getFirstEntity() as IEntity
+		// 找到第一個非和局的 bead
+		let firstNoneGreenBead = beadRoad.getFirstEntity()
+		while (firstNoneGreenBead instanceof GreenBeadEntity) {
+			firstNoneGreenBead = firstNoneGreenBead.getNextEntity()
+		}
+		// 根據上一步，創建第一個 bigEntity
+		let bigEntity
+		if (firstNoneGreenBead instanceof RedBeadEntity) {
+			bigEntity = new BancoBigEntity(firstNoneGreenBead.getGameId())
+		} else {
+			const converted = firstNoneGreenBead as BeadEntity
+			bigEntity = new PuntoBigEntity(converted.getGameId())
+		}
+		bigroad.addEntity(bigEntity)
+		// 填充 preTieBadge
+		let lastBead = firstNoneGreenBead?.getPreviousEntity()
+		while (lastBead) {
+			bigEntity.addTag(new TieBadge(true))
+			lastBead = lastBead.getPreviousEntity()
+		}
+		// 向後繼續解析
+		let currentBead = firstNoneGreenBead?.getNextEntity()
 		while (currentBead) {
 			if (currentBead instanceof GreenBeadEntity) {
-			// entity = 修改上一個entity，添加tag
+				bigEntity.addTag(new TieBadge())
 			} else {
-				let entity: BigEntity
 				if (currentBead instanceof RedBeadEntity) {
-					entity = new BancoBigEntity(currentBead.getGameId())
+					bigEntity = new BancoBigEntity(currentBead.getGameId())
 				} else {
-					entity = new PuntoBigEntity(currentBead.getGameId())
+					bigEntity = new PuntoBigEntity(currentBead.getGameId())
 				}
-				bigroad.addEntity(entity)
+				bigroad.addEntity(bigEntity)
 			}
-			currentBead = currentBead.getNextEntity() as IEntity
+			currentBead = currentBead.getNextEntity()
 		}
 		return bigroad
 	}

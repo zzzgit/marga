@@ -6,6 +6,7 @@ import PairBadge from "./model/badge/PairBadge"
 import PuntoNaturalBadge from "./model/badge/PuntoNaturalBadge"
 import PuntoPairBadge from "./model/badge/PuntoPairBadge"
 import SuperSixBadge from "./model/badge/SuperSixBadge"
+import TieBadge from "./model/badge/TieBadge"
 import Entity from "./model/entity/Entity"
 import IEntity from "./model/entity/IEntity"
 import BeadEntity from "./model/road/bead/BeadEntity"
@@ -23,7 +24,7 @@ import IStreakRoad from "./model/road/IStreakRoad"
 import Streak from "./model/streak/Streak"
 
 
-export {Badge, BancoNaturalBadge as BancoNaturalBadge, BancoPairBadge as BancoPairBadge, NaturalBadge, PairBadge, PuntoNaturalBadge as PuntoNaturalBadge, PuntoPairBadge as PuntoPairBadge, SuperSixBadge}
+export {Badge, BancoNaturalBadge as BancoNaturalBadge, BancoPairBadge as BancoPairBadge, NaturalBadge, PairBadge, PuntoNaturalBadge as PuntoNaturalBadge, PuntoPairBadge as PuntoPairBadge, SuperSixBadge, TieBadge as TieBadge}
 export {Entity, IEntity}
 export {BeadEntity, BeadRoad, BlueBeadEntity, GreenBeadEntity, IBeadRoad, RedBeadEntity}
 export {BancoBigEntity as BancoBigEntity, BigEntity, BigRoad, PuntoBigEntity as PuntoBigEntity}
