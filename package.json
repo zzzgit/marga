@@ -27,8 +27,8 @@
   ],
   "license": "LGPL-3.0-or-later",
   "engines": {
-    "npm": ">=8.4.0",
-    "node": ">=16.0"
+    "npm": ">=9.5.0",
+    "node": ">=18.0"
   },
   "author": "jonkee",
   "dependencies": {
