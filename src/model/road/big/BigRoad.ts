@@ -12,7 +12,15 @@ import BancoBigEntity from "./BancoBigEntity"
 import BigEntity from "./BigEntity"
 import PuntoBigEntity from "./PuntoBigEntity"
 
+/**
+ * The Big Road is a streak road that records the results of the game.
+ */
 class BigRoad implements IStreakRoad {
+	/**
+	 * Form a new BigRoad from a beadRoad object (which is a collection of bead entities).
+	 * @param {BeadRoad} beadRoad
+	 * @return {BigRoad} The new BigRoad
+	 */
 	static from(beadRoad: BeadRoad): BigRoad {
 		const bigroad = new BigRoad(beadRoad.getShoeIndex())
 		// 找到第一個非和局的 bead
@@ -100,6 +108,11 @@ class BigRoad implements IStreakRoad {
 		return this._length
 	}
 
+	/**
+	 * Add entity to the Big Road.
+	 * @param {BigEntity} entity
+	 * @return {boolean} If the entity is added successfully, return true, otherwise return false.
+	 */
 	addEntity(entity: BigEntity): boolean {
 		this._entityIndex++
 		entity.setIndex(this._entityIndex)
@@ -110,7 +123,7 @@ class BigRoad implements IStreakRoad {
 			this._setLastStreak(steak)
 		}
 		const lastStreak = this.getLastStreak() as Streak
-		// streak is not suitable
+		// streak is not suitable(different color)
 		const result = lastStreak.addEntity(entity)
 		if (!result) {
 			const newStreak: Streak = new Streak()
@@ -132,17 +145,21 @@ class BigRoad implements IStreakRoad {
 	}
 
 	getFirstEntity(): Entity | undefined {
-		throw new InnerError(`[BigRoad][getFirstEntity]:`)
+		throw new InnerError(`[BigRoad][getFirstEntity]: not implemented`)
 	}
 
 	getLastEntity(): IEntity | undefined {
-		throw new InnerError(`[BigRoad][getLastEntity]:`)
+		throw new InnerError(`[BigRoad][getLastEntity]: not implemented`)
 	}
 
 	getShoeIndex(): number {
 		return this._shoeIndex
 	}
 
+	/**
+	 * Get a generator that can iterate the Pingpong pattern in the Big Road.
+	 * @return {Generator<BigEntity[], void, boolean>} A generator that can iterate the Pingpong pattern in the Big Road.
+	 */
 	getPingpongIterator(): Generator<BigEntity[], void, boolean> {
 		const first = this.getFirstStreak()
 		const gen = function* (): Generator<BigEntity[], void, boolean> {

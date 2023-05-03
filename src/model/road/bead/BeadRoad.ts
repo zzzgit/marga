@@ -3,6 +3,9 @@ import Entity from "../../entity/Entity"
 import IEntity from "../../entity/IEntity"
 import IRoad from "../IRoad"
 
+/**
+ * Bead road. This is the most basic road and have no streaks.
+ */
 class BeadRoad implements IRoad {
 	private _set: Set<Entity> = new Set()
 
@@ -43,6 +46,11 @@ class BeadRoad implements IRoad {
 		return this._shoeIndex
 	}
 
+	/**
+	 * Add entity to the bead road.
+	 * @param {Entity} entity
+	 * @return {boolean} True if the entity was added, false if it was not
+	 */
 	addEntity(entity: Entity): boolean {
 		if (this._set.has(entity)) {
 			return false
@@ -62,7 +70,10 @@ class BeadRoad implements IRoad {
 		return true
 	}
 
-
+	/**
+	 * The number of entities in the road.
+	 * @return {number} The number of entities in the road
+	 */
 	getSize(): number {
 		return this._set.size
 	}

@@ -3,11 +3,20 @@ import IEntity from "../entity/IEntity"
 interface IRoad {
 	getFirstEntity(): IEntity | undefined
 	getLastEntity(): IEntity | undefined
-	// 不能出現重複的object,成功就返回true，其他的類，在其他的項目中，也要有這樣的實現
+	/**
+	 * Add an entity to the road.
+	 * @todo avoid duplicate objects
+	 * @param {IEntity} entity The entity to add
+	 * @return {boolean} True if the entity was added, false if it was not
+	 */
 	addEntity(entity: IEntity): boolean
 	getSize(): number
 	getShoeIndex(): number
-	// 可能應該重寫toString函數
+	/**
+	 * Print the road to the console.
+	 * @todo or just rewrite toString()
+	 * @return {string[][] | string[]}
+	 */
 	print():string[][] | string[]
 }
 

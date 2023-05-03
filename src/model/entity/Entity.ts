@@ -2,6 +2,9 @@ import InnerError from "../../error/InnerError"
 import Badge from "../badge/Badge"
 import IEntity from "./IEntity"
 
+/**
+ * Entiy for road. It implements the interface IEntity.
+ */
 class Entity implements IEntity {
 	private _prev: Entity |undefined
 
@@ -55,7 +58,6 @@ class Entity implements IEntity {
 		}
 		return this._prev
 	}
-
 
 	getTagArray(): Badge[] {
 		return [...this._tagArray]

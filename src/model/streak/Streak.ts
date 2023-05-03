@@ -1,6 +1,8 @@
 import BigEntity from "../road/big/BigEntity"
 
-
+/**
+ * The streak in the Big Road.
+ */
 class Streak {
 	private _firstEntity: BigEntity | undefined
 
@@ -37,10 +39,19 @@ class Streak {
 		streak.setNextStreak(this)
 	}
 
+	/**
+	 * How many entities are in this streak.
+	 * @return {number} The length of the streak
+	 */
 	getLength(): number {
 		return this._length
 	}
 
+	/**
+	 * Add an entity to the streak. The entity will be added to the end of the streak. If the entity is not the same(banco or punto) as the last entity in the streak, it will not be added.
+	 * @param {BigEntity} entity
+	 * @return {boolean} True if the entity was added, false if it was not
+	 */
 	addEntity(entity: BigEntity) :boolean {
 		if (!this._lastEntity) {
 			this._firstEntity = this._lastEntity = entity
