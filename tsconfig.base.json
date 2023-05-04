@@ -3,7 +3,7 @@
 		"target": "ESNext",
 		"module": "commonjs",
 		"lib": ["esnext"],
-		"sourceMap": true,
+		"sourceMap": false,
 		"moduleResolution": "Node",
 		"strictNullChecks": true,
 		"removeComments": false,
@@ -23,6 +23,7 @@
 		"listFiles": true,
 		"pretty": false,
 		"noEmitOnError": true,
+		// "rootDir": "./", 導致tsc 編譯的文件夾結構：built/lib/src/...
 		"forceConsistentCasingInFileNames": true,
 		"noImplicitReturns": true,
 		"allowSyntheticDefaultImports": true
