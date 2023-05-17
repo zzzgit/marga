@@ -13,7 +13,7 @@
     "test": "npm run lint && jest",
     "build": "npm run test && npm run clean && npm run tsc",
     "clean": "rimraf coverage .nyc_output .rts2_cache built",
-    "tsc": "tsc",
+    "tsc": "tsc --sourceMap false",
     "lint": "eslint './src/**' '-c=.eslintrc.yml'",
     "jest": "jest 'test/*'"
   },

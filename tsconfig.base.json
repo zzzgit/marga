@@ -3,7 +3,7 @@
 		"target": "ESNext",
 		"module": "commonjs",
 		"lib": ["esnext"],
-		"sourceMap": false,
+		"sourceMap": true,
 		"moduleResolution": "Node",
 		"strictNullChecks": true,
 		"removeComments": false,
