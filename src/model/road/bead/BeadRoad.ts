@@ -15,7 +15,7 @@ class BeadRoad implements IRoad {
 
 	private readonly _shoeIndex: number
 
-	private _entityIndex : number = -1
+	private _entityIndex: number = -1
 
 	private _setLastEntity(entity: Entity): void {
 		this._lastEntity = entity
@@ -32,7 +32,6 @@ class BeadRoad implements IRoad {
 	print(): string[] | string[][] {
 		throw new InnerError(`[BigRoad][getFirstEntity]: not implemented`)
 	}
-
 
 	getFirstEntity(): IEntity | undefined {
 		return this._firstEntity

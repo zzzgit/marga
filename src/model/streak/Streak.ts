@@ -8,13 +8,13 @@ class Streak {
 
 	private _lastEntity: BigEntity | undefined
 
-	private _next:Streak | undefined
+	private _next: Streak | undefined
 
-	private _prev:Streak | undefined
+	private _prev: Streak | undefined
 
-	private _length:number = 0
+	private _length: number = 0
 
-	getFirstEntity(): BigEntity|undefined {
+	getFirstEntity(): BigEntity | undefined {
 		return this._firstEntity
 	}
 
@@ -52,7 +52,7 @@ class Streak {
 	 * @param {BigEntity} entity
 	 * @return {boolean} True if the entity was added, false if it was not
 	 */
-	addEntity(entity: BigEntity) :boolean {
+	addEntity(entity: BigEntity): boolean {
 		if (!this._lastEntity) {
 			this._firstEntity = this._lastEntity = entity
 			this._length++

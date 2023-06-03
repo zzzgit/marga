@@ -1,6 +1,5 @@
 import Badge from "./Badge"
 
-
 class NaturalBadge extends Badge {
 	score: number
 

@@ -17,7 +17,7 @@ interface IRoad {
 	 * @todo or just rewrite toString()
 	 * @return {string[][] | string[]}
 	 */
-	print():string[][] | string[]
+	print(): string[][] | string[]
 }
 
 export default IRoad

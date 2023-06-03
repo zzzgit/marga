@@ -3,7 +3,7 @@ import TieBadge from "../../badge/TieBadge"
 import Entity from "../../entity/Entity"
 import IEntity from "../../entity/IEntity"
 import Streak from "../../streak/Streak"
-import BeadEntity from '../bead/BeadEntity'
+import BeadEntity from "../bead/BeadEntity"
 import BeadRoad from "../bead/BeadRoad"
 import GreenBeadEntity from "../bead/GreenBeadEntity"
 import RedBeadEntity from "../bead/RedBeadEntity"
@@ -84,7 +84,7 @@ class BigRoad implements IStreakRoad {
 	}
 
 	print(): string[] | string[][] {
-		const result:string[][] = []
+		const result: string[][] = []
 		let streak = this.getFirstStreak()
 		while (streak) {
 			const streakArr = []
@@ -166,7 +166,8 @@ class BigRoad implements IStreakRoad {
 			const entities_arr: BigEntity[] = []
 			let streak = first
 			while (streak) {
-				if (streak.getLength() === 1) {	// 當前streak是單跳
+				if (streak.getLength() === 1) {
+					// 當前streak是單跳
 					entities_arr.push(streak.getFirstEntity() as BigEntity)
 				} else {
 					if (streak.getPreviousStreak()?.getLength() === 1) {

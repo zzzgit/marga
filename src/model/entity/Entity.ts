@@ -6,16 +6,15 @@ import IEntity from "./IEntity"
  * Entiy for road. It implements the interface IEntity.
  */
 class Entity implements IEntity {
-	private _prev: Entity |undefined
+	private _prev: Entity | undefined
 
-	private _next: Entity |undefined
+	private _next: Entity | undefined
 
 	private _index: number = -1
 
 	private _tagArray: Badge[] = []
 
 	private readonly _gameId: number
-
 
 	constructor(gameId: number) {
 		this._gameId = gameId
@@ -41,7 +40,9 @@ class Entity implements IEntity {
 
 	setPreviousEntity(entity: IEntity): void {
 		if (!(entity instanceof Entity)) {
-			throw new InnerError(`[Entity][setPreviousEntity]: parameter entity should a instance of Entity!`)
+			throw new InnerError(
+				`[Entity][setPreviousEntity]: parameter entity should a instance of Entity!`
+			)
 		}
 		this._prev = entity
 		// entity.setNextEntity(this)

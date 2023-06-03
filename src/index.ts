@@ -23,10 +23,31 @@ import IRoad from "./model/road/IRoad"
 import IStreakRoad from "./model/road/IStreakRoad"
 import Streak from "./model/streak/Streak"
 
-
-export {Badge, BancoNaturalBadge as BancoNaturalBadge, BancoPairBadge as BancoPairBadge, NaturalBadge, PairBadge, PuntoNaturalBadge as PuntoNaturalBadge, PuntoPairBadge as PuntoPairBadge, SuperSixBadge, TieBadge as TieBadge}
+export {
+	Badge,
+	BancoNaturalBadge as BancoNaturalBadge,
+	BancoPairBadge as BancoPairBadge,
+	NaturalBadge,
+	PairBadge,
+	PuntoNaturalBadge as PuntoNaturalBadge,
+	PuntoPairBadge as PuntoPairBadge,
+	SuperSixBadge,
+	TieBadge as TieBadge,
+}
 export {Entity, IEntity}
-export {BeadEntity, BeadRoad, BlueBeadEntity, GreenBeadEntity, IBeadRoad, RedBeadEntity}
-export {BancoBigEntity as BancoBigEntity, BigEntity, BigRoad, PuntoBigEntity as PuntoBigEntity}
+export {
+	BeadEntity,
+	BeadRoad,
+	BlueBeadEntity,
+	GreenBeadEntity,
+	IBeadRoad,
+	RedBeadEntity,
+}
+export {
+	BancoBigEntity as BancoBigEntity,
+	BigEntity,
+	BigRoad,
+	PuntoBigEntity as PuntoBigEntity,
+}
 export {IRoad, IStreakRoad}
 export {Streak}

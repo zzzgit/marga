@@ -1,8 +1,7 @@
 import Badge from "./Badge"
 
-
 class TieBadge extends Badge {
-	isPre :boolean = false
+	isPre: boolean = false
 
 	constructor(isPre: boolean = false) {
 		super()
