@@ -1,10 +1,17 @@
-import {BancoBigEntity, BeadRoad, BigRoad, BlueBeadEntity, PuntoBigEntity, RedBeadEntity, Streak} from "../src"
+import {
+	BancoBigEntity,
+	BeadRoad,
+	BigRoad,
+	BlueBeadEntity,
+	PuntoBigEntity,
+	RedBeadEntity,
+	Streak,
+} from "../src"
 
 const blueBeadEntity: BlueBeadEntity = new BlueBeadEntity(2)
 const redBeadEntity: RedBeadEntity = new RedBeadEntity(2)
 const blueBigEntity: PuntoBigEntity = new PuntoBigEntity(2)
 const redBigEntity: BancoBigEntity = new BancoBigEntity(2)
-
 
 describe("bigroad.ts", () => {
 	test("from", () => {
