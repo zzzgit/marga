@@ -1,6 +1,8 @@
 import BeadEntity from "./BeadEntity"
 
-// banker
+/**
+ * Red is for Banco in the Bead Plate
+ */
 class RedBeadEntity extends BeadEntity {
 	isTie(): boolean {
 		return false

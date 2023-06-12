@@ -4,7 +4,7 @@ import IEntity from "../../entity/IEntity"
 import IRoad from "../IRoad"
 
 /**
- * Bead road. This is the most basic road and have no streaks.
+ * Bead road. This is the most basic road and have no streaks. It is implemented with a set which can guarantee that there are no repeated entities.
  */
 class BeadRoad implements IRoad {
 	private _set: Set<Entity> = new Set()

@@ -1,6 +1,8 @@
 import BeadEntity from "./BeadEntity"
 
-// player
+/**
+ * Blue is for Punto in the Bead Plate
+ */
 class BlueBeadEntity extends BeadEntity {
 	isTie(): boolean {
 		return false

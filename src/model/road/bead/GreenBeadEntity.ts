@@ -1,6 +1,8 @@
 import BeadEntity from "./BeadEntity"
 
-// tie
+/**
+ * Green is for Tie in the Bead Plate
+ */
 class GreenBeadEntity extends BeadEntity {
 	isTie(): boolean {
 		return true
