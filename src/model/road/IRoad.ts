@@ -1,4 +1,4 @@
-import IEntity from "../entity/IEntity"
+import IEntity from '../entity/IEntity'
 
 interface IRoad {
 	getFirstEntity(): IEntity | undefined

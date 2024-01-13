@@ -1,18 +1,18 @@
-import BeadEntity from "./BeadEntity"
+import BeadEntity from './BeadEntity'
 
 /**
  * Green is for Tie in the Bead Plate
  */
-class GreenBeadEntity extends BeadEntity {
-	isTie(): boolean {
+class GreenBeadEntity extends BeadEntity{
+	isTie(): boolean{
 		return true
 	}
 
-	isBancoWon(): boolean {
+	isBancoWon(): boolean{
 		return false
 	}
 
-	isPuntoWon(): boolean {
+	isPuntoWon(): boolean{
 		return false
 	}
 }

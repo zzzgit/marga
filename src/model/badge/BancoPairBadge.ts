@@ -1,5 +1,5 @@
-import PairBadge from "./PairBadge"
+import PairBadge from './PairBadge'
 
-class BancoPairBadge extends PairBadge {}
+class BancoPairBadge extends PairBadge{}
 
 export default BancoPairBadge

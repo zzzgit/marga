@@ -1,36 +1,36 @@
-import InnerError from "../../../error/InnerError"
-import TieBadge from "../../badge/TieBadge"
-import Entity from "../../entity/Entity"
-import IEntity from "../../entity/IEntity"
-import Streak from "../../streak/Streak"
-import BeadEntity from "../bead/BeadEntity"
-import BeadRoad from "../bead/BeadRoad"
-import GreenBeadEntity from "../bead/GreenBeadEntity"
-import RedBeadEntity from "../bead/RedBeadEntity"
-import IStreakRoad from "../IStreakRoad"
-import BancoBigEntity from "./BancoBigEntity"
-import BigEntity from "./BigEntity"
-import PuntoBigEntity from "./PuntoBigEntity"
+import InnerError from '../../../error/InnerError'
+import TieBadge from '../../badge/TieBadge'
+import Entity from '../../entity/Entity'
+import IEntity from '../../entity/IEntity'
+import Streak from '../../streak/Streak'
+import BeadEntity from '../bead/BeadEntity'
+import BeadRoad from '../bead/BeadRoad'
+import GreenBeadEntity from '../bead/GreenBeadEntity'
+import RedBeadEntity from '../bead/RedBeadEntity'
+import IStreakRoad from '../IStreakRoad'
+import BancoBigEntity from './BancoBigEntity'
+import BigEntity from './BigEntity'
+import PuntoBigEntity from './PuntoBigEntity'
 
 /**
  * The Big Road is a streak road that records the results of the game.
  */
-class BigRoad implements IStreakRoad {
+class BigRoad implements IStreakRoad{
 	/**
 	 * Form a new BigRoad from a beadRoad object (which is a collection of bead entities).
 	 * @param {BeadRoad} beadRoad
 	 * @return {BigRoad} The new BigRoad
 	 */
-	static from(beadRoad: BeadRoad): BigRoad {
+	static from(beadRoad: BeadRoad): BigRoad{
 		const bigroad = new BigRoad(beadRoad.getShoeIndex())
 		// 找到第一個非和局的 bead
 		let firstNoneGreenBead = beadRoad.getFirstEntity()
-		while (firstNoneGreenBead instanceof GreenBeadEntity) {
+		while (firstNoneGreenBead instanceof GreenBeadEntity){
 			firstNoneGreenBead = firstNoneGreenBead.getNextEntity()
 		}
 		// 根據上一步，創建第一個 bigEntity
 		let bigEntity
-		if (firstNoneGreenBead instanceof RedBeadEntity) {
+		if (firstNoneGreenBead instanceof RedBeadEntity){
 			bigEntity = new BancoBigEntity(firstNoneGreenBead.getGameId())
 		} else {
 			const converted = firstNoneGreenBead as BeadEntity
@@ -39,17 +39,17 @@ class BigRoad implements IStreakRoad {
 		bigroad.addEntity(bigEntity)
 		// 填充 preTieBadge
 		let lastBead = firstNoneGreenBead?.getPreviousEntity()
-		while (lastBead) {
+		while (lastBead){
 			bigEntity.addTag(new TieBadge(true))
 			lastBead = lastBead.getPreviousEntity()
 		}
 		// 向後繼續解析
 		let currentBead = firstNoneGreenBead?.getNextEntity()
-		while (currentBead) {
-			if (currentBead instanceof GreenBeadEntity) {
+		while (currentBead){
+			if (currentBead instanceof GreenBeadEntity){
 				bigEntity.addTag(new TieBadge())
 			} else {
-				if (currentBead instanceof RedBeadEntity) {
+				if (currentBead instanceof RedBeadEntity){
 					bigEntity = new BancoBigEntity(currentBead.getGameId())
 				} else {
 					bigEntity = new PuntoBigEntity(currentBead.getGameId())
@@ -71,31 +71,31 @@ class BigRoad implements IStreakRoad {
 
 	private readonly _shoeIndex: number
 
-	private _setLastStreak(streak: Streak): void {
+	private _setLastStreak(streak: Streak): void{
 		this._lastStreak = streak
 	}
 
-	private _setFirstStreak(streak: Streak): void {
+	private _setFirstStreak(streak: Streak): void{
 		this._firstStreak = streak
 	}
 
-	constructor(index: number) {
+	constructor(index: number){
 		this._shoeIndex = index
 	}
 
-	print(): string[] | string[][] {
+	print(): string[] | string[][]{
 		const result: string[][] = []
 		let streak = this.getFirstStreak()
-		while (streak) {
+		while (streak){
 			const streakArr = []
 			const first = streak.getFirstEntity()
-			if (first?.isBanco) {
-				for (let i = 0, len = streak.getLength(); i < len; i++) {
-					streakArr.push("B ")
+			if (first?.isBanco){
+				for (let i = 0, len = streak.getLength(); i < len; i++){
+					streakArr.push('B ')
 				}
 			} else {
-				for (let i = 0, len = streak.getLength(); i < len; i++) {
-					streakArr.push("P ")
+				for (let i = 0, len = streak.getLength(); i < len; i++){
+					streakArr.push('P ')
 				}
 			}
 			result.push(streakArr)
@@ -104,7 +104,7 @@ class BigRoad implements IStreakRoad {
 		return result
 	}
 
-	getSize(): number {
+	getSize(): number{
 		return this._length
 	}
 
@@ -113,11 +113,11 @@ class BigRoad implements IStreakRoad {
 	 * @param {BigEntity} entity
 	 * @return {boolean} If the entity is added successfully, return true, otherwise return false.
 	 */
-	addEntity(entity: BigEntity): boolean {
+	addEntity(entity: BigEntity): boolean{
 		this._entityIndex++
 		entity.setIndex(this._entityIndex)
 		// no streak
-		if (!this.getFirstStreak()) {
+		if (!this.getFirstStreak()){
 			const steak: Streak = new Streak()
 			this._setFirstStreak(steak)
 			this._setLastStreak(steak)
@@ -125,7 +125,7 @@ class BigRoad implements IStreakRoad {
 		const lastStreak = this.getLastStreak() as Streak
 		// streak is not suitable(different color)
 		const result = lastStreak.addEntity(entity)
-		if (!result) {
+		if (!result){
 			const newStreak: Streak = new Streak()
 			newStreak.setPreviousStreak(lastStreak)
 			this._setLastStreak(newStreak)
@@ -136,23 +136,23 @@ class BigRoad implements IStreakRoad {
 		return true
 	}
 
-	getFirstStreak(): Streak | undefined {
+	getFirstStreak(): Streak | undefined{
 		return this._firstStreak
 	}
 
-	getLastStreak(): Streak | undefined {
+	getLastStreak(): Streak | undefined{
 		return this._lastStreak
 	}
 
-	getFirstEntity(): Entity | undefined {
-		throw new InnerError(`[BigRoad][getFirstEntity]: not implemented`)
+	getFirstEntity(): Entity | undefined{
+		throw new InnerError('[BigRoad][getFirstEntity]: not implemented')
 	}
 
-	getLastEntity(): IEntity | undefined {
-		throw new InnerError(`[BigRoad][getLastEntity]: not implemented`)
+	getLastEntity(): IEntity | undefined{
+		throw new InnerError('[BigRoad][getLastEntity]: not implemented')
 	}
 
-	getShoeIndex(): number {
+	getShoeIndex(): number{
 		return this._shoeIndex
 	}
 
@@ -160,17 +160,17 @@ class BigRoad implements IStreakRoad {
 	 * Get a generator that can iterate the Pingpong pattern in the Big Road.
 	 * @return {Generator<BigEntity[], void, boolean>} A generator that can iterate the Pingpong pattern in the Big Road.
 	 */
-	getPingpongIterator(): Generator<BigEntity[], void, boolean> {
+	getPingpongIterator(): Generator<BigEntity[], void, boolean>{
 		const first = this.getFirstStreak()
-		const gen = function* (): Generator<BigEntity[], void, boolean> {
+		const gen = function* (): Generator<BigEntity[], void, boolean>{
 			const entities_arr: BigEntity[] = []
 			let streak = first
-			while (streak) {
-				if (streak.getLength() === 1) {
+			while (streak){
+				if (streak.getLength() === 1){
 					// 當前streak是單跳
 					entities_arr.push(streak.getFirstEntity() as BigEntity)
 				} else {
-					if (streak.getPreviousStreak()?.getLength() === 1) {
+					if (streak.getPreviousStreak()?.getLength() === 1){
 						const result = [...entities_arr]
 						entities_arr.length = 0
 						yield result
@@ -178,7 +178,7 @@ class BigRoad implements IStreakRoad {
 				}
 				streak = streak.getNextStreak()
 			}
-			if (entities_arr.length) {
+			if (entities_arr.length){
 				const result = [...entities_arr]
 				entities_arr.length = 0
 				yield result

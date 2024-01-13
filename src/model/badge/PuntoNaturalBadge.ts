@@ -1,5 +1,5 @@
-import NaturalBadge from "./NaturalBadge"
+import NaturalBadge from './NaturalBadge'
 
-class PuntoNaturalBadge extends NaturalBadge {}
+class PuntoNaturalBadge extends NaturalBadge{}
 
 export default PuntoNaturalBadge

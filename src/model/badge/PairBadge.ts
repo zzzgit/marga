@@ -1,9 +1,9 @@
-import Badge from "./Badge"
+import Badge from './Badge'
 
-class PairBadge extends Badge {
+class PairBadge extends Badge{
 	score: number = 0
 
-	cardId: string = ""
+	cardId: string = ''
 }
 
 export default PairBadge

@@ -1,9 +1,9 @@
-import BigEntity from "../road/big/BigEntity"
+import BigEntity from '../road/big/BigEntity'
 
 /**
  * The streak in the Big Road.
  */
-class Streak {
+class Streak{
 	private _firstEntity: BigEntity | undefined
 
 	private _lastEntity: BigEntity | undefined
@@ -14,27 +14,27 @@ class Streak {
 
 	private _length: number = 0
 
-	getFirstEntity(): BigEntity | undefined {
+	getFirstEntity(): BigEntity | undefined{
 		return this._firstEntity
 	}
 
-	getLastEntity(): BigEntity | undefined {
+	getLastEntity(): BigEntity | undefined{
 		return this._lastEntity
 	}
 
-	getNextStreak(): Streak | undefined {
+	getNextStreak(): Streak | undefined{
 		return this._next
 	}
 
-	getPreviousStreak(): Streak | undefined {
+	getPreviousStreak(): Streak | undefined{
 		return this._prev
 	}
 
-	setNextStreak(streak: Streak): void {
+	setNextStreak(streak: Streak): void{
 		this._next = streak
 	}
 
-	setPreviousStreak(streak: Streak): void {
+	setPreviousStreak(streak: Streak): void{
 		this._prev = streak
 		streak.setNextStreak(this)
 	}
@@ -43,7 +43,7 @@ class Streak {
 	 * How many entities are in this streak.
 	 * @return {number} The length of the streak
 	 */
-	getLength(): number {
+	getLength(): number{
 		return this._length
 	}
 
@@ -52,13 +52,13 @@ class Streak {
 	 * @param {BigEntity} entity
 	 * @return {boolean} True if the entity was added, false if it was not
 	 */
-	addEntity(entity: BigEntity): boolean {
-		if (!this._lastEntity) {
+	addEntity(entity: BigEntity): boolean{
+		if (!this._lastEntity){
 			this._firstEntity = this._lastEntity = entity
 			this._length++
 			return true
 		}
-		if (this.getLastEntity()?.isBanco != entity.isBanco) {
+		if (this.getLastEntity()?.isBanco != entity.isBanco){
 			return false
 		}
 		entity.setPreviousEntity(this._lastEntity)

@@ -1,4 +1,4 @@
-import Badge from "../badge/Badge"
+import Badge from '../badge/Badge'
 
 interface IEntity {
 	getIndex(): number

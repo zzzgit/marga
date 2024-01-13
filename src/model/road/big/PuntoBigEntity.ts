@@ -1,6 +1,6 @@
-import BigEntity from "./BigEntity"
+import BigEntity from './BigEntity'
 
-class PuntoBigEntity extends BigEntity {
+class PuntoBigEntity extends BigEntity{
 	isBanco: boolean = false
 
 	isPunto: boolean = true

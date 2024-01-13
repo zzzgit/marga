@@ -1,12 +1,12 @@
-import InnerError from "../../../error/InnerError"
-import Entity from "../../entity/Entity"
-import IEntity from "../../entity/IEntity"
-import IRoad from "../IRoad"
+import InnerError from '../../../error/InnerError'
+import Entity from '../../entity/Entity'
+import IEntity from '../../entity/IEntity'
+import IRoad from '../IRoad'
 
 /**
  * Bead road. This is the most basic road and have no streaks. It is implemented with a set which can guarantee that there are no repeated entities.
  */
-class BeadRoad implements IRoad {
+class BeadRoad implements IRoad{
 	private _set: Set<Entity> = new Set()
 
 	private _firstEntity: Entity | undefined
@@ -17,31 +17,31 @@ class BeadRoad implements IRoad {
 
 	private _entityIndex: number = -1
 
-	private _setLastEntity(entity: Entity): void {
+	private _setLastEntity(entity: Entity): void{
 		this._lastEntity = entity
 	}
 
-	private _setFirstEntity(entity: Entity): void {
+	private _setFirstEntity(entity: Entity): void{
 		this._firstEntity = entity
 	}
 
-	constructor(index: number) {
+	constructor(index: number){
 		this._shoeIndex = index
 	}
 
-	print(): string[] | string[][] {
-		throw new InnerError(`[BigRoad][getFirstEntity]: not implemented`)
+	print(): string[] | string[][]{
+		throw new InnerError('[BigRoad][getFirstEntity]: not implemented')
 	}
 
-	getFirstEntity(): IEntity | undefined {
+	getFirstEntity(): IEntity | undefined{
 		return this._firstEntity
 	}
 
-	getLastEntity(): IEntity | undefined {
+	getLastEntity(): IEntity | undefined{
 		return this._lastEntity
 	}
 
-	getShoeIndex(): number {
+	getShoeIndex(): number{
 		return this._shoeIndex
 	}
 
@@ -50,19 +50,19 @@ class BeadRoad implements IRoad {
 	 * @param {Entity} entity
 	 * @return {boolean} True if the entity was added, false if it was not
 	 */
-	addEntity(entity: Entity): boolean {
-		if (this._set.has(entity)) {
+	addEntity(entity: Entity): boolean{
+		if (this._set.has(entity)){
 			return false
 		}
 		this._entityIndex++
 		entity.setIndex(this._entityIndex)
 		this._set.add(entity)
-		if (!this.getFirstEntity()) {
+		if (!this.getFirstEntity()){
 			this._setFirstEntity(entity)
 			this._setLastEntity(entity)
 			return true
 		}
-		if (this.getLastEntity()) {
+		if (this.getLastEntity()){
 			entity.setPreviousEntity(this.getLastEntity() as Entity)
 		}
 		this._setLastEntity(entity)
@@ -73,7 +73,7 @@ class BeadRoad implements IRoad {
 	 * The number of entities in the road.
 	 * @return {number} The number of entities in the road
 	 */
-	getSize(): number {
+	getSize(): number{
 		return this._set.size
 	}
 
