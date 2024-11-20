@@ -6,6 +6,7 @@ import IEntity from './IEntity'
  * Entiy for road. It implements the interface IEntity.
  */
 class Entity implements IEntity{
+
 	private _prev: Entity | undefined
 
 	private _next: Entity | undefined
@@ -40,9 +41,7 @@ class Entity implements IEntity{
 
 	setPreviousEntity(entity: IEntity): void{
 		if (!(entity instanceof Entity)){
-			throw new InnerError(
-				'[Entity][setPreviousEntity]: parameter entity should a instance of Entity!'
-			)
+			throw new InnerError('[Entity][setPreviousEntity]: parameter entity should a instance of Entity!')
 		}
 		this._prev = entity
 		// entity.setNextEntity(this)
@@ -67,6 +66,7 @@ class Entity implements IEntity{
 	addTag(tag: Badge): void{
 		this._tagArray.push(tag)
 	}
+
 }
 
 export default Entity

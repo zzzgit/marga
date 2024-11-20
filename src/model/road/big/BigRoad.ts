@@ -16,6 +16,7 @@ import PuntoBigEntity from './PuntoBigEntity'
  * The Big Road is a streak road that records the results of the game.
  */
 class BigRoad implements IStreakRoad{
+
 	/**
 	 * Form a new BigRoad from a beadRoad object (which is a collection of bead entities).
 	 * @param {BeadRoad} beadRoad
@@ -162,7 +163,7 @@ class BigRoad implements IStreakRoad{
 	 */
 	getPingpongIterator(): Generator<BigEntity[], void, boolean>{
 		const first = this.getFirstStreak()
-		const gen = function* (): Generator<BigEntity[], void, boolean>{
+		const gen = function *(): Generator<BigEntity[], void, boolean>{
 			const entities_arr: BigEntity[] = []
 			let streak = first
 			while (streak){
@@ -186,6 +187,7 @@ class BigRoad implements IStreakRoad{
 		}
 		return gen()
 	}
+
 }
 
 export default BigRoad

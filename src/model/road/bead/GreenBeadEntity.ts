@@ -4,6 +4,7 @@ import BeadEntity from './BeadEntity'
  * Green is for Tie in the Bead Plate
  */
 class GreenBeadEntity extends BeadEntity{
+
 	isTie(): boolean{
 		return true
 	}
@@ -15,6 +16,7 @@ class GreenBeadEntity extends BeadEntity{
 	isPuntoWon(): boolean{
 		return false
 	}
+
 }
 
 export default GreenBeadEntity

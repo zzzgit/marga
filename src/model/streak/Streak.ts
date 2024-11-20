@@ -4,6 +4,7 @@ import BigEntity from '../road/big/BigEntity'
  * The streak in the Big Road.
  */
 class Streak{
+
 	private _firstEntity: BigEntity | undefined
 
 	private _lastEntity: BigEntity | undefined
@@ -66,6 +67,7 @@ class Streak{
 		this._length++
 		return true
 	}
+
 }
 
 export default Streak
